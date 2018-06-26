@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jxbrowser-linux64-6.21">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../jxbrowser-6.21-cross-desktop-win_mac_linux/lib/jxbrowser-linux64-6.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

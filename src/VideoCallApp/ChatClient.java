@@ -1,5 +1,13 @@
 package VideoCallApp;
 
+import com.teamdev.jxbrowser.chromium.Browser;
+import com.teamdev.jxbrowser.chromium.swing.BrowserView;
+import javafx.application.Platform;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.Scene;
+import javafx.scene.web.WebView;
+
+import java.awt.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -8,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -144,6 +153,7 @@ public class ChatClient extends javax.swing.JFrame {
                             break;
                         case "list":
                             setTable(text);
+
                             break;
                     }
                 } catch (IOException e) {
@@ -189,6 +199,18 @@ public class ChatClient extends javax.swing.JFrame {
         popupMenu1 = new java.awt.PopupMenu();
         popupMenu2 = new java.awt.PopupMenu();
         jPanel3 = new javax.swing.JPanel();
+        JFXPanel panelWebView = new JFXPanel();
+
+
+        System.setProperty("teamdev.license.info", "true");
+
+        Browser browser = new Browser();
+        BrowserView bViewSwing = new BrowserView(browser);
+
+
+
+
+
         usernameTextField = new javax.swing.JTextField();
         masukButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -204,6 +226,16 @@ public class ChatClient extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+
+
+
+
+
+        browser.loadURL("https://videolink2me.com/");
+
+
+
+
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -258,7 +290,11 @@ public class ChatClient extends javax.swing.JFrame {
                 clientTableMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(clientTable);
+
+
+
+
+        jScrollPane2.setViewportView(bViewSwing);
 
         jLabel1.setText("Server");
 
@@ -320,7 +356,7 @@ public class ChatClient extends javax.swing.JFrame {
                                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jScrollPane1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
                         .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(220, 220, 220)
@@ -431,7 +467,7 @@ public class ChatClient extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IllegalAccessException {
         /* Set the Nimbus look and feel */
 //
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -444,13 +480,7 @@ public class ChatClient extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ChatClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 //
